@@ -2,39 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Kokoa Design System - Modern AI & Innovation Studio
+Inspired by LATAM creativity and global ambition
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Brand Colors - Kokoa Identity */
+    --background: 36 100% 94%;              /* #fef4e0 - Crema cálido */
+    --foreground: 0 0% 10%;                 /* Negro profundo */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 36 100% 96%;                    /* Ligero tinte del background */
+    --card-foreground: 0 0% 10%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 36 100% 97%;
+    --popover-foreground: 0 0% 10%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Kokoa Primary - Azul vibrante de innovación */
+    --primary: 238 98% 61%;                 /* #3c43fb - Azul vibrante */
+    --primary-foreground: 36 100% 94%;     /* Crema para contraste */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Kokoa Secondary - Base cálida */
+    --secondary: 36 100% 88%;               /* Versión más suave del crema */
+    --secondary-foreground: 0 0% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 36 50% 90%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Kokoa Accent - Rojo energético */
+    --accent: 0 100% 60%;                   /* #ff3333 - Rojo energético */
+    --accent-foreground: 36 100% 94%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 100% 60%;              /* Usamos el rojo de marca */
+    --destructive-foreground: 36 100% 94%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 36 30% 85%;
+    --input: 36 30% 88%;
+    --ring: 238 98% 61%;                    /* Primary blue */
+
+    /* Kokoa Design Tokens */
+    --gradient-hero: linear-gradient(135deg, hsl(238 98% 61%), hsl(0 100% 60%));
+    --gradient-subtle: linear-gradient(180deg, hsl(36 100% 96%), hsl(36 100% 94%));
+    --shadow-elegant: 0 20px 50px -20px hsl(238 98% 61% / 0.15);
+    --shadow-warm: 0 10px 30px -10px hsl(0 100% 60% / 0.1);
+    
+    /* Animation Tokens */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --radius: 0.5rem;
 
@@ -56,33 +70,34 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark mode manteniendo la identidad Kokoa */
+    --background: 0 0% 8%;                  /* Negro profundo */
+    --foreground: 36 100% 94%;              /* Crema cálido */
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 10%;
+    --card-foreground: 36 100% 94%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 36 100% 94%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 238 98% 61%;                 /* Mantener azul vibrante */
+    --primary-foreground: 0 0% 8%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 36 100% 94%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 36 30% 70%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 0 100% 60%;                   /* Mantener rojo energético */
+    --accent-foreground: 0 0% 8%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 0 0% 8%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 238 98% 61%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -100,6 +115,62 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Kokoa Typography Scale */
+  .text-hero {
+    @apply text-4xl md:text-6xl font-bold leading-tight tracking-tight;
+  }
+
+  .text-headline {
+    @apply text-2xl md:text-4xl font-bold leading-tight;
+  }
+
+  .text-subhead {
+    @apply text-lg md:text-xl leading-relaxed;
+  }
+
+  .text-body-large {
+    @apply text-base md:text-lg leading-relaxed;
+  }
+
+  /* Kokoa Component Styles */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+    @apply shadow-lg hover:shadow-xl transition-all duration-300;
+    @apply border-0 font-semibold px-8 py-4 rounded-xl;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-accent-foreground hover:bg-accent/90;
+    @apply shadow-lg hover:shadow-xl transition-all duration-300;
+    @apply border-0 font-semibold px-6 py-3 rounded-lg;
+  }
+
+  .card-kokoa {
+    @apply bg-card/60 backdrop-blur-sm border border-border/50;
+    @apply rounded-2xl p-8 shadow-elegant hover:shadow-warm;
+    @apply transition-all duration-500 hover:-translate-y-1;
+  }
+
+  .section-kokoa {
+    @apply py-16 md:py-24 px-4 max-w-7xl mx-auto;
+  }
+
+  /* Animations */
+  .animate-fade-in-up {
+    @apply animate-in slide-in-from-bottom-8 duration-700;
+  }
+
+  .animate-bounce-gentle {
+    animation: bounce-gentle 2s infinite;
+  }
+
+  @keyframes bounce-gentle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
   }
 }
