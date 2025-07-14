@@ -5,15 +5,9 @@ import { Button } from "@/components/ui/button";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const socialLinks = [
-    { name: "YouTube", url: "#", icon: "📺" },
-    { name: "LinkedIn", url: "#", icon: "💼" },
-    { name: "Instagram", url: "#", icon: "📸" },
-  ];
-
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3">
@@ -23,7 +17,7 @@ const Header = () => {
               className="h-8 w-8"
             />
             <div>
-              <h1 className="text-lg font-bold">Kokoa</h1>
+              <h1 className="text-lg font-semibold text-foreground">Kokoa</h1>
               <p className="text-xs text-muted-foreground -mt-1">AI & Innovation Studio</p>
             </div>
           </div>
@@ -31,26 +25,17 @@ const Header = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             {/* Social Links */}
-            <div className="flex items-center space-x-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  className="text-sm hover:text-primary transition-colors duration-200"
-                  aria-label={social.name}
-                >
-                  {social.icon}
-                </a>
-              ))}
+            <div className="flex items-center space-x-4 text-sm">
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                Instagram
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                YouTube
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                LinkedIn
+              </a>
             </div>
-
-            {/* Navigation Links */}
-            <a 
-              href="#contacto" 
-              className="text-sm font-medium hover:text-primary transition-colors duration-200"
-            >
-              Contacto
-            </a>
 
             {/* CTA Button */}
             <Button 
@@ -83,27 +68,18 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border/50">
+          <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col space-y-4">
-              <a 
-                href="#contacto" 
-                className="text-sm font-medium hover:text-primary transition-colors duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contacto
-              </a>
-              
-              <div className="flex items-center space-x-4">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.url}
-                    className="text-sm hover:text-primary transition-colors duration-200"
-                    aria-label={social.name}
-                  >
-                    {social.icon}
-                  </a>
-                ))}
+              <div className="flex items-center space-x-4 text-sm">
+                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Instagram
+                </a>
+                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                  YouTube
+                </a>
+                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                  LinkedIn
+                </a>
               </div>
 
               <Button 

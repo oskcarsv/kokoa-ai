@@ -1,58 +1,50 @@
 const AboutSection = () => {
   return (
-    <section className="section-kokoa bg-gradient-to-b from-background to-secondary/20">
+    <section className="section-clean">
       <div className="text-center max-w-4xl mx-auto">
-        <h2 className="text-headline mb-8 animate-fade-in-up">
-          ¿Qué es 
-          <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            {" "}Kokoa
-          </span>
-          ?
+        <h2 className="text-headline mb-8 text-foreground">
+          Quiénes Somos
         </h2>
         
-        <div className="card-kokoa animate-fade-in-up delay-200">
-          <p className="text-body-large leading-relaxed text-center">
-            Kokoa es el <strong className="text-primary">epicentro de innovación LATAM</strong> donde la creatividad humana se encuentra con la inteligencia artificial para crear impacto global. 
-            Somos builders que no se conforman con lo que existe — <strong className="text-accent">creamos lo que debería existir.</strong>
+        <div className="card-clean mb-16">
+          <p className="text-subhead leading-relaxed text-center text-muted-foreground">
+            Somos un grupo de apasionados por la inteligencia artificial que cree en el talento latinoamericano. 
+            Creamos, aprendemos y colaboramos para elevar el nivel de innovación en la región.
           </p>
         </div>
 
         {/* Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             {
               icon: "🎨",
               title: "Creatividad",
-              description: "Desbloqueamos tu potencial creativo sin límites técnicos",
-              delay: "delay-300"
+              description: "Desbloqueamos tu potencial sin límites técnicos"
             },
             {
               icon: "💡",
               title: "Innovación",
-              description: "Creamos soluciones originales que no existían antes",
-              delay: "delay-400"
+              description: "Creamos soluciones que no existían antes"
             },
             {
               icon: "🌍",
               title: "Impacto",
-              description: "Cada idea que materializamos busca cambiar el mundo",
-              delay: "delay-500"
+              description: "Buscamos cambiar el mundo con cada proyecto"
             },
             {
               icon: "🚀",
               title: "Think Outside the Box",
-              description: "Pensamos diferente, construimos diferente, innovamos diferente",
-              delay: "delay-600"
+              description: "Pensamos diferente, construimos diferente, innovamos diferente"
             }
           ].map((pillar, index) => (
             <div 
               key={index}
-              className={`card-kokoa text-center group hover:scale-105 transition-transform duration-300 animate-fade-in-up ${pillar.delay}`}
+              className="card-clean text-center group hover:shadow-md transition-all duration-200"
             >
-              <div className="text-4xl mb-4 group-hover:animate-bounce-gentle">
+              <div className="text-3xl mb-4">
                 {pillar.icon}
               </div>
-              <h3 className="text-xl font-bold mb-3 text-foreground">
+              <h3 className="text-lg font-semibold mb-3 text-foreground">
                 {pillar.title}
               </h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
