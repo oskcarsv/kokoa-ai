@@ -35,17 +35,17 @@ const HeroSection = () => {
               <TypeAnimation
                 sequence={[
                   'innovators',
-                  2000,
+                  800,
                   'builders',
                   2000,
                   'emprendedores',
-                  2000,
+                  800,
                   'diseñadores',
-                  2000,
+                  800,
                   'developers',
-                  2000,
+                  800,
                   'creativos',
-                  2000,
+                  800,
                 ]}
                 wrapper="span"
                 speed={40}
