@@ -35,7 +35,6 @@ const AboutSection = () => {
         <p className="text-base sm:text-xl text-gray-700 mb-4 text-center max-w-lg sm:max-w-2xl leading-relaxed">
           Somos un equipo de personas apasionadas por enseñar, compartir y aportar al ecosistema de inteligencia artificial en Latinoamérica. Creemos en el poder de la colaboración, la educación y la creatividad para transformar realidades.<br /><br />
           Nuestra misión es demostrar que desde Guatemala y la región, podemos exportar tecnología de nivel mundial, inspirando a la próxima generación de builders y líderes en AI.<br /><br />
-          <span className="font-semibold text-kokoa-blue">De Guatemala para el mundo.</span>
         </p>
       </div>
     </section>
