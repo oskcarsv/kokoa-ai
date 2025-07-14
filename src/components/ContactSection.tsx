@@ -73,7 +73,7 @@ const ContactSection = () => {
               <div>
                 <h4 className="font-medium mb-2">📅 Próximo Workshop</h4>
                 <p className="text-muted-foreground text-sm">
-                  Cada miércoles a las 7:00 PM (hora Guatemala)
+                  Cada jueves a las 7:00 PM (hora Guatemala)
                 </p>
               </div>
 

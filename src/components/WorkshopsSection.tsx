@@ -29,7 +29,7 @@ const WorkshopsSection = () => {
           </motion.div>
           <h2 className="text-4xl font-bold mb-4">Workshops Semanales</h2>
           <p className="text-lg leading-relaxed mb-4 opacity-90">
-            Nos reunimos virtualmente cada miércoles para aprender, construir y conectar desde toda Latinoamérica.
+            Nos reunimos virtualmente cada jueves para aprender, construir y conectar desde toda Latinoamérica.
           </p>
           <p className="text-base opacity-80">
             Consulta los horarios y accede a los próximos workshops en el calendario.
@@ -52,7 +52,7 @@ const WorkshopsSection = () => {
                 whileHover={{ scale: 1.05, y: -5 }}
               >
                 <p className="font-bold text-lg text-white mb-1">{country.name}</p>
-                <p className="text-kokoa-orange font-semibold text-xl">{country.time}</p>
+                <p className="text-white font-semibold text-xl">{country.time}</p>
               </motion.div>
             ))}
           </motion.div>

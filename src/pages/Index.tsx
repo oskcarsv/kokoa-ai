@@ -6,6 +6,7 @@ import WorkshopsSection from "@/components/WorkshopsSection";
 import FinalCTASection from "@/components/FinalCTASection";
 import Footer from "@/components/Footer";
 import { Instagram, Youtube, Linkedin } from "lucide-react";
+import FAQSection from "@/components/FAQSection";
 
 const Index = () => {
   return (
@@ -17,6 +18,7 @@ const Index = () => {
         <AboutSection />
         <WorkshopsSection />
         <FinalCTASection />
+        <FAQSection />
       </main>
       <Footer />
     </div>
