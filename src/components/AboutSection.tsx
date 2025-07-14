@@ -1,58 +1,21 @@
+import { motion } from 'framer-motion';
+
 const AboutSection = () => {
   return (
-    <section className="section-clean">
-      <div className="text-center max-w-4xl mx-auto">
-        <h2 className="text-headline mb-8 text-foreground">
-          Quiénes Somos
-        </h2>
-        
-        <div className="card-clean mb-16">
-          <p className="text-subhead leading-relaxed text-center text-muted-foreground">
-            Somos un grupo de apasionados por la inteligencia artificial que cree en el talento latinoamericano. 
-            Creamos, aprendemos y colaboramos para elevar el nivel de innovación en la región.
+    <section className="bg-white py-20">
+      <div className="container mx-auto px-4">
+        <motion.div 
+          className="text-center max-w-3xl mx-auto"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">¿Quiénes Somos?</h2>
+          <p className="text-lg text-gray-600 leading-relaxed">
+            Somos una comunidad apasionada por la inteligencia artificial que cree en el poder creativo y técnico de Latinoamérica. Juntos construimos, colaboramos e innovamos.
           </p>
-        </div>
-
-        {/* Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            {
-              icon: "🎨",
-              title: "Creatividad",
-              description: "Desbloqueamos tu potencial sin límites técnicos"
-            },
-            {
-              icon: "💡",
-              title: "Innovación",
-              description: "Creamos soluciones que no existían antes"
-            },
-            {
-              icon: "🌍",
-              title: "Impacto",
-              description: "Buscamos cambiar el mundo con cada proyecto"
-            },
-            {
-              icon: "🚀",
-              title: "Think Outside the Box",
-              description: "Pensamos diferente, construimos diferente, innovamos diferente"
-            }
-          ].map((pillar, index) => (
-            <div 
-              key={index}
-              className="card-clean text-center group hover:shadow-md transition-all duration-200"
-            >
-              <div className="text-3xl mb-4">
-                {pillar.icon}
-              </div>
-              <h3 className="text-lg font-semibold mb-3 text-foreground">
-                {pillar.title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {pillar.description}
-              </p>
-            </div>
-          ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

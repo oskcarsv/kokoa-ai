@@ -1,23 +1,23 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
+import PillarsSection from "@/components/PillarsSection";
 import WorkshopsSection from "@/components/WorkshopsSection";
 import EventsSection from "@/components/EventsSection";
-import CommunitySection from "@/components/CommunitySection";
-import ContactSection from "@/components/ContactSection";
+import FinalCTASection from "@/components/FinalCTASection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       <Header />
       <main>
         <HeroSection />
         <AboutSection />
+        <PillarsSection />
         <WorkshopsSection />
         <EventsSection />
-        <CommunitySection />
-        <ContactSection />
+        <FinalCTASection />
       </main>
       <Footer />
     </div>

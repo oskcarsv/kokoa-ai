@@ -1,67 +1,73 @@
-import { ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Instagram, Youtube, Linkedin } from "lucide-react";
 
 const Footer = () => {
+  const siteLinks = [
+    { to: "/", label: "Inicio" },
+    { to: "/meetings", label: "Meetings" },
+    { to: "/events", label: "Eventos" },
+    { to: "/unete", label: "Únete" },
+  ];
+
+  const socialLinks = [
+    { href: "https://instagram.com/kokoa.lat", icon: <Instagram className="h-6 w-6" /> },
+    { href: "https://youtube.com/@kokoa", icon: <Youtube className="h-6 w-6" /> },
+    { href: "https://linkedin.com/company/kokoa", icon: <Linkedin className="h-6 w-6" /> },
+  ];
+
   return (
-    <footer className="bg-secondary/30 border-t border-border">
-      <div className="max-w-6xl mx-auto px-4 py-12">
-        {/* Main Footer Content */}
-        <div className="text-center mb-8">
-          {/* Logo and Brand */}
-          <div className="flex items-center justify-center space-x-3 mb-6">
-            <img 
-              src="/lovable-uploads/8e2e8027-a5b0-443d-85c0-d545ab8824a2.png" 
-              alt="Kokoa Logo" 
-              className="h-10 w-10"
-            />
-            <div className="text-left">
-              <h3 className="text-xl font-semibold text-foreground">Kokoa</h3>
-              <p className="text-sm text-muted-foreground">AI & Innovation Studio</p>
+    <footer className="bg-white border-t border-gray-200/80">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          {/* Column 1: Logo & Mission */}
+          <div className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left">
+            <Link to="/" className="flex items-center space-x-3 mb-5">
+              <img 
+                src="/img/blue-without-a.png"
+                alt="Kokoa Logo" 
+                className="h-10 w-auto"
+              />
+              <span className="text-3xl font-bold text-gray-900">Kokoa</span>
+            </Link>
+            <p className="text-gray-600 max-w-sm">
+              Construyendo el futuro desde Latinoamérica con inteligencia artificial.
+            </p>
+            <div className="mt-6 flex justify-center lg:justify-start space-x-5">
+              {socialLinks.map((link) => (
+                <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-kokoa-blue transition-all duration-300 hover:scale-110">
+                  {link.icon}
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Mission Statement */}
-          <p className="text-primary font-medium mb-6">
-            "Construyendo el futuro desde Latinoamérica"
-          </p>
+          {/* Spacer */}
+          <div className="lg:col-span-2"></div>
 
-          {/* Social Links */}
-          <div className="flex justify-center items-center gap-6 mb-8 text-sm">
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-              Instagram
-            </a>
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-              YouTube
-            </a>
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-              LinkedIn
-            </a>
+          {/* Column 2: Site Links */}
+          <div className="lg:col-span-2 text-center lg:text-left">
+            <h3 className="text-lg font-semibold text-gray-900 mb-5">Navegación</h3>
+            <ul className="space-y-3">
+              {siteLinks.map((link) => (
+                <li key={link.to}>
+                  <Link to={link.to} className="text-gray-600 hover:text-kokoa-blue transition-colors duration-300">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* CTA Section */}
-          <div className="card-clean max-w-lg mx-auto mb-8">
-            <h4 className="text-lg font-semibold mb-3">¿Listo para construir el futuro?</h4>
-            <p className="text-muted-foreground text-sm mb-4">
-              Únete a nuestra comunidad de innovadores y demuestra que desde LATAM podemos cambiar el mundo
-            </p>
-            <a 
-              href="https://chat.whatsapp.com/JqT60S7eCMwLHtLG5ZHHzr" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground 
-                       rounded-lg font-medium hover:bg-primary/90 transition-colors duration-200"
-            >
-              Únete a la Comunidad
-              <ExternalLink className="h-4 w-4" />
-            </a>
+          {/* Column 3: Contact */}
+          <div className="lg:col-span-4 text-center lg:text-left">
+            <h3 className="text-lg font-semibold text-gray-900 mb-5">Contacto</h3>
+            <a href="mailto:info@kokoa.lat" className="text-gray-600 hover:text-kokoa-blue transition-colors duration-300">info@kokoa.lat</a>
           </div>
+
         </div>
 
-        {/* Copyright */}
-        <div className="border-t border-border pt-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <p>© 2024 Kokoa | AI & Innovation Studio. Todos los derechos reservados.</p>
-            <span className="italic">Hecho con ❤️ en LATAM</span>
-          </div>
+        <div className="border-t border-gray-200/80 mt-12 pt-8 text-center text-base text-gray-500">
+          <p>© {new Date().getFullYear()} Kokoa | AI & Innovation Studio LATAM. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

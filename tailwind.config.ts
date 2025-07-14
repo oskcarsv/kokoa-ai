@@ -22,6 +22,10 @@ export default {
 				sans: ['Inter', 'system-ui', 'sans-serif'],
 			},
 			colors: {
+				kokoa: {
+					blue: '#3c43fb',
+					orange: '#ff3333',
+				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',

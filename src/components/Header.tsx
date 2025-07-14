@@ -1,106 +1,109 @@
 import { useState } from "react";
-import { Menu, X, ExternalLink } from "lucide-react";
+import { Link, NavLink } from "react-router-dom";
+import { Menu, X, Instagram, Youtube, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const navLinks = [
+    { to: "/", label: "Inicio" },
+    { to: "/meetings", label: "Meetings" },
+    { to: "/unete", label: "Únete" },
+  ];
+
+  const socialLinks = [
+    { href: "https://instagram.com/kokoa.lat", icon: <Instagram className="h-5 w-5" /> },
+    { href: "https://youtube.com/@kokoa", icon: <Youtube className="h-5 w-5" /> },
+    { href: "https://linkedin.com/company/kokoa", icon: <Linkedin className="h-5 w-5" /> },
+  ];
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-b border-gray-200/80">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-2">
             <img 
-              src="/lovable-uploads/8e2e8027-a5b0-443d-85c0-d545ab8824a2.png" 
+              src="/img/blue-without-a.png"
               alt="Kokoa Logo" 
-              className="h-8 w-8"
+              className="h-9 w-auto"
             />
-            <div>
-              <h1 className="text-lg font-semibold text-foreground">Kokoa</h1>
-              <p className="text-xs text-muted-foreground -mt-1">AI & Innovation Studio</p>
-            </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
-            {/* Social Links */}
-            <div className="flex items-center space-x-4 text-sm">
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                Instagram
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                YouTube
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                LinkedIn
-              </a>
+          <nav className="hidden md:flex items-center space-x-10">
+            <div className="flex items-center space-x-8">
+              {navLinks.map((link) => (
+                <NavLink
+                  key={link.to}
+                  to={link.to}
+                  className={({ isActive }) =>
+                    `text-base font-medium transition-colors duration-300 ${isActive ? 'text-kokoa-blue' : 'text-gray-700 hover:text-kokoa-blue'}`
+                  }
+                >
+                  {link.label}
+                </NavLink>
+              ))}
             </div>
-
-            {/* CTA Button */}
-            <Button 
-              asChild
-              className="btn-primary"
-            >
-              <a 
-                href="https://chat.whatsapp.com/JqT60S7eCMwLHtLG5ZHHzr" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2"
-              >
+            <div className="flex items-center space-x-5">
+              {socialLinks.map((link) => (
+                <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-kokoa-blue transition-all duration-300 hover:scale-110">
+                  {link.icon}
+                </a>
+              ))}
+            </div>
+            <Button asChild className="bg-kokoa-orange text-white font-semibold shadow-md hover:bg-kokoa-orange/90 transform hover:scale-105 transition-transform duration-300 rounded-full px-6 py-2">
+              <a href="https://chat.whatsapp.com/JqT60S7eCMwLHtLG5ZHHzr" target="_blank" rel="noopener noreferrer">
                 Únete
-                <ExternalLink className="h-4 w-4" />
               </a>
             </Button>
-          </div>
+          </nav>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
             <Button
               variant="ghost"
-              size="sm"
+              size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
         </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
-            <div className="flex flex-col space-y-4">
-              <div className="flex items-center space-x-4 text-sm">
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Instagram
-                </a>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                  YouTube
-                </a>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                  LinkedIn
-                </a>
-              </div>
-
-              <Button 
-                asChild
-                className="btn-primary w-full"
-              >
-                <a 
-                  href="https://chat.whatsapp.com/JqT60S7eCMwLHtLG5ZHHzr" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Únete a la Comunidad
-                  <ExternalLink className="h-4 w-4" />
-                </a>
-              </Button>
-            </div>
-          </div>
-        )}
       </div>
+
+      {/* Mobile Navigation */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-white border-t border-gray-200">
+          <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                className={({ isActive }) =>
+                  `text-base font-medium text-center ${isActive ? 'text-kokoa-blue' : 'text-gray-700 hover:text-kokoa-blue'}`
+                }
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.label}
+              </NavLink>
+            ))}
+            <div className="flex justify-center space-x-6 pt-4 border-t border-gray-200">
+                {socialLinks.map((link) => (
+                  <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-kokoa-blue transition-transform duration-300 hover:scale-110">
+                    {link.icon}
+                  </a>
+                ))}
+            </div>
+            <Button asChild className="bg-kokoa-orange text-white hover:bg-kokoa-orange/90 w-full">
+              <a href="https://chat.whatsapp.com/JqT60S7eCMwLHtLG5ZHHzr" target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)}>
+                Únete a la Comunidad
+              </a>
+            </Button>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
