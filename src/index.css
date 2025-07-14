@@ -136,8 +136,10 @@ Inspired by LATAM creativity and global ambition
   .text-body-large {
     @apply text-base md:text-lg leading-relaxed;
   }
+}
 
-  /* Kokoa Component Styles */
+/* Kokoa Custom Components */
+@layer components {
   .btn-primary {
     @apply bg-primary text-primary-foreground hover:bg-primary/90;
     @apply shadow-lg hover:shadow-xl transition-all duration-300;
@@ -152,21 +154,31 @@ Inspired by LATAM creativity and global ambition
 
   .card-kokoa {
     @apply bg-card/60 backdrop-blur-sm border border-border/50;
-    @apply rounded-2xl p-8 shadow-elegant hover:shadow-warm;
+    @apply rounded-2xl p-8 shadow-lg hover:shadow-xl;
     @apply transition-all duration-500 hover:-translate-y-1;
   }
 
   .section-kokoa {
     @apply py-16 md:py-24 px-4 max-w-7xl mx-auto;
   }
+}
 
-  /* Animations */
+/* Kokoa Custom Utilities */
+@layer utilities {
   .animate-fade-in-up {
     @apply animate-in slide-in-from-bottom-8 duration-700;
   }
 
   .animate-bounce-gentle {
     animation: bounce-gentle 2s infinite;
+  }
+
+  .shadow-elegant {
+    box-shadow: 0 20px 50px -20px hsl(var(--primary) / 0.15);
+  }
+
+  .shadow-warm {
+    box-shadow: 0 10px 30px -10px hsl(var(--accent) / 0.1);
   }
 
   @keyframes bounce-gentle {
