@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import { Instagram, Youtube, Linkedin } from "lucide-react";
 
 const Footer = () => {
   const siteLinks = [
     { to: "/", label: "Inicio" },
     { to: "/meetings", label: "Meetings" },
-    { to: "/events", label: "Eventos" },
     { to: "/unete", label: "Únete" },
   ];
 
@@ -23,6 +23,10 @@ const Footer = () => {
       icon: <Linkedin className="h-6 w-6" />,
     },
   ];
+
+  const handleInicioClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <footer className="bg-white border-t border-gray-200/80">
@@ -67,12 +71,22 @@ const Footer = () => {
             <ul className="space-y-3">
               {siteLinks.map((link) => (
                 <li key={link.to}>
-                  <Link
-                    to={link.to}
-                    className="text-gray-600 hover:text-kokoa-blue transition-colors duration-300"
-                  >
-                    {link.label}
-                  </Link>
+                  {link.label === "Inicio" ? (
+                    <Link
+                      to={link.to}
+                      className="text-gray-600 hover:text-kokoa-blue transition-colors duration-300"
+                      onClick={handleInicioClick}
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <Link
+                      to={link.to}
+                      className="text-gray-600 hover:text-kokoa-blue transition-colors duration-300"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

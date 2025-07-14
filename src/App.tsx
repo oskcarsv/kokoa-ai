@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Meetings from "./pages/Meetings";
 import Unete from "./pages/Unete";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "./ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +17,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/meetings" element={<Meetings />} />
