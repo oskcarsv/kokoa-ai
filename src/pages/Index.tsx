@@ -3,7 +3,6 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import PillarsSection from "@/components/PillarsSection";
 import WorkshopsSection from "@/components/WorkshopsSection";
-import EventsSection from "@/components/EventsSection";
 import FinalCTASection from "@/components/FinalCTASection";
 import Footer from "@/components/Footer";
 import { Instagram, Youtube, Linkedin } from "lucide-react";
@@ -17,7 +16,6 @@ const Index = () => {
         <PillarsSection />
         <AboutSection />
         <WorkshopsSection />
-        <EventsSection />
         <FinalCTASection />
       </main>
       <Footer />
