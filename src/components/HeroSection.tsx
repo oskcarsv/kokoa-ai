@@ -1,6 +1,7 @@
 import { TypeAnimation } from 'react-type-animation';
 import { Button } from "@/components/ui/button";
 import { motion } from 'framer-motion';
+import { Instagram, Youtube, Linkedin } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -59,7 +60,18 @@ const HeroSection = () => {
           <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-12 font-light">
             Transformamos ideas en impacto global. Únete a nosotros para construir, colaborar e innovar.
           </p>
-
+        {/* Íconos sociales arriba del botón principal */}
+        <div className="flex justify-center items-center gap-8 mb-8">
+          <a href="https://instagram.com/kokoa.lat" target="_blank" rel="noopener noreferrer" className="text-kokoa-blue hover:scale-110 transition-transform" aria-label="Instagram">
+            <Instagram className="h-8 w-8" />
+          </a>
+          <a href="https://www.youtube.com/@kokoa-lat" target="_blank" rel="noopener noreferrer" className="text-kokoa-blue hover:scale-110 transition-transform" aria-label="YouTube">
+            <Youtube className="h-8 w-8" />
+          </a>
+          <a href="https://www.linkedin.com/company/kokoa-lat/" target="_blank" rel="noopener noreferrer" className="text-kokoa-blue hover:scale-110 transition-transform" aria-label="LinkedIn">
+            <Linkedin className="h-8 w-8" />
+          </a>
+        </div>
           <Button asChild size="lg" className="bg-kokoa-blue text-white font-bold shadow-lg hover:bg-kokoa-blue/90 transform hover:scale-105 transition-transform duration-300 rounded-full px-10 py-7 text-xl">
             <a href="https://chat.whatsapp.com/JqT60S7eCMwLHtLG5ZHHzr" target="_blank" rel="noopener noreferrer">
               Únete a la Comunidad
