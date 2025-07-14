@@ -97,6 +97,7 @@ const Footer = () => {
             © {new Date().getFullYear()} Kokoa | AI & Innovation Studio LATAM.
             Todos los derechos reservados.
           </p>
+          <p className="mt-2 text-sm text-gray-400">Hecho con ♥️ desde Guatemala</p>
         </div>
       </div>
     </footer>
