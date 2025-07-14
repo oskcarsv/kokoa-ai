@@ -6,7 +6,6 @@ const countryTimes = [
   { name: "México", time: "8:00 PM" },
   { name: "Colombia", time: "9:00 PM" },
   { name: "Argentina", time: "11:00 PM" },
-  { name: "Brasil", time: "11:00 PM" },
   { name: "Chile", time: "10:00 PM" },
 ];
 
