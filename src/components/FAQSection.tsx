@@ -44,13 +44,22 @@ const faqs = [
     question: "¿Qué tipo de actividades y proyectos hacen?",
     answer: (
       <>
-        <strong>Todos los jueves a las 7:00 PM (hora Guatemala)</strong> hacemos workshops virtuales.<br />
+        <strong>Todos los jueves a las 6:00 PM (hora Guatemala)</strong> hacemos workshops virtuales.<br />
         <ul className="list-disc pl-5 mt-2">
           <li>Automatizaciones para negocios</li>
           <li>Validadores de ideas</li>
           <li>Herramientas con AI</li>
           <li>Prototipos sin código</li>
         </ul>
+        <div className="mt-3">
+          <span className="font-semibold">Horarios de referencia:</span>
+          <ul className="list-disc pl-5 mt-1">
+            <li>México: 7:00 PM</li>
+            <li>Colombia: 8:00 PM</li>
+            <li>Chile: 9:00 PM</li>
+            <li>Argentina: 10:00 PM</li>
+          </ul>
+        </div>
         <span className="block mt-2">Entre semana, la comunidad colabora y comparte avances en WhatsApp.</span>
       </>
     ),

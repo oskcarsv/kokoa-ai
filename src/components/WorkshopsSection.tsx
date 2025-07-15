@@ -2,11 +2,11 @@ import { motion } from 'framer-motion';
 import { CalendarClock } from 'lucide-react';
 
 const countryTimes = [
-  { name: "Guatemala", time: "7:00 PM" },
-  { name: "México", time: "8:00 PM" },
-  { name: "Colombia", time: "9:00 PM" },
-  { name: "Argentina", time: "11:00 PM" },
-  { name: "Chile", time: "10:00 PM" },
+  { name: "Guatemala", time: "6:00 PM" },
+  { name: "México", time: "7:00 PM" },
+  { name: "Colombia", time: "8:00 PM" },
+  { name: "Chile", time: "9:00 PM" },
+  { name: "Argentina", time: "10:00 PM" },
 ];
 
 const WorkshopsSection = () => {
