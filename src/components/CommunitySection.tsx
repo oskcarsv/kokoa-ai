@@ -13,7 +13,7 @@ const CommunitySection = () => {
           
           <div className="card-clean mb-8">
             <p className="text-subhead leading-relaxed text-muted-foreground">
-              Conecta con builders, creativos y emprendedores que comparten tu ambición de crear con AI. 
+              Conecta con makers, creativos y emprendedores que comparten tu ambición de crear con AI. 
               Aprende, construye y colabora en una comunidad auténtica que está redefiniendo lo que significa ser 
               innovador en Latinoamérica.
             </p>
@@ -65,7 +65,7 @@ const CommunitySection = () => {
           
           <p className="text-subhead leading-relaxed text-muted-foreground mb-6">
             Celebramos la diversidad, creatividad y resiliencia que nos caracteriza como región. 
-            Builders de México hasta Argentina, todos unidos por demostrar que desde LATAM podemos construir soluciones de clase mundial.
+            makers de México hasta Argentina, todos unidos por demostrar que desde LATAM podemos construir soluciones de clase mundial.
           </p>
 
           {/* Countries representation */}

@@ -34,7 +34,7 @@ const AboutSection = () => {
         <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3 sm:mb-4 text-center">Sobre nosotros</h2>
         <p className="text-base sm:text-xl text-gray-700 mb-4 text-center max-w-lg sm:max-w-2xl leading-relaxed">
           Somos un equipo de personas apasionadas por enseñar, compartir y aportar al ecosistema de inteligencia artificial en Latinoamérica. Creemos en el poder de la colaboración, la educación y la creatividad para transformar realidades.<br /><br />
-          Nuestra misión es demostrar que desde Guatemala y la región, podemos exportar tecnología de nivel mundial, inspirando a la próxima generación de builders y líderes en AI.<br /><br />
+          Nuestra misión es demostrar que desde Guatemala y la región, podemos exportar tecnología de nivel mundial, inspirando a la próxima generación de makers y líderes en AI.<br /><br />
         </p>
       </div>
     </section>

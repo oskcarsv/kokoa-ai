@@ -80,7 +80,7 @@ const ContactSection = () => {
               <div>
                 <h4 className="font-medium mb-2">🌎 Desde toda LATAM</h4>
                 <p className="text-muted-foreground text-sm">
-                  Builders conectando desde México hasta Argentina
+                  makers conectando desde México hasta Argentina
                 </p>
               </div>
             </div>

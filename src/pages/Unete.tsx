@@ -10,7 +10,7 @@ const beneficios = [
   },
   {
     icon: <Users className="h-6 w-6 text-kokoa-blue" />, 
-    texto: "Conecta y haz networking con otros builders y creativos de LATAM."
+    texto: "Conecta y haz networking con otros makers y creativos de LATAM."
   },
   {
     icon: <Star className="h-6 w-6 text-kokoa-blue" />, 

@@ -36,7 +36,7 @@ const HeroSection = () => {
                 sequence={[
                   'innovators',
                   800,
-                  'builders',
+                  'makers',
                   2000,
                   'emprendedores',
                   800,
