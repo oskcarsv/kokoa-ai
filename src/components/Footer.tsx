@@ -11,7 +11,7 @@ const Footer = () => {
 
   const socialLinks = [
     {
-      href: "https://instagram.com/kokoa.lat",
+      href: "https://www.instagram.com/kokoa.lat/",
       icon: <Instagram className="h-6 w-6" />,
     },
     {

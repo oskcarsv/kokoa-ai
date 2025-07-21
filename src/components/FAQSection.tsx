@@ -2,12 +2,43 @@ import React from "react";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./ui/accordion";
 import { HelpCircle } from "lucide-react";
 
+// Función para calcular horarios basados en la hora de Guatemala (6:00 PM)
+const getWorkshopTimes = () => {
+  // Hora de referencia: 6:00 PM en Guatemala
+  const baseTime = '6:00 PM';
+  
+  // Diferencias horarias conocidas (en horas) desde Guatemala
+  const timeZones = [
+    { name: "México", offset: 0 },
+    { name: "Colombia", offset: 1 },
+    { name: "Chile", offset: 2 },
+    { name: "Argentina", offset: 3 },
+  ];
+
+  return timeZones.map(({ name, offset }) => {
+    // Calcular hora local
+    let [time, period] = baseTime.split(' ');
+    let [hours, minutes] = time.split(':').map(Number);
+    let newHours = hours + offset;
+    
+    if (newHours > 12) {
+      newHours -= 12;
+      period = period === 'PM' ? 'AM' : 'PM';
+    }
+    
+    return { 
+      name, 
+      time: `${newHours}:${minutes.toString().padStart(2, '0')} ${period}` 
+    };
+  });
+};
+
 const faqs = [
   {
-    question: "¿Qué es Kokoa.lat y cómo funciona?",
+    question: "¿Qué es Kokoa y cómo funciona?",
     answer: (
       <>
-        <strong>Kokoa.lat</strong> es una <strong>comunidad gratuita</strong> de makers, emprendedores y creativos latinoamericanos.<br />
+        <strong>Kokoa</strong> es una <strong>comunidad gratuita</strong> de builders, emprendedores y creativos latinoamericanos.<br />
         <ul className="list-disc pl-5 mt-2">
           <li>No es un curso tradicional.</li>
           <li>Aprendes haciendo proyectos reales, compartiendo y colaborando.</li>
@@ -54,10 +85,9 @@ const faqs = [
         <div className="mt-3">
           <span className="font-semibold">Horarios de referencia:</span>
           <ul className="list-disc pl-5 mt-1">
-            <li>México: 7:00 PM</li>
-            <li>Colombia: 8:00 PM</li>
-            <li>Chile: 9:00 PM</li>
-            <li>Argentina: 10:00 PM</li>
+            {getWorkshopTimes().map((country) => (
+              <li key={country.name}>{country.name}: {country.time}</li>
+            ))}
           </ul>
         </div>
         <span className="block mt-2">Entre semana, la comunidad colabora y comparte avances en WhatsApp.</span>

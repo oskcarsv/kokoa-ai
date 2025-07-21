@@ -13,7 +13,7 @@ const Header = () => {
   ];
 
   const socialLinks = [
-    { href: "https://instagram.com/kokoa.lat", icon: <Instagram className="h-5 w-5" /> },
+    { href: "https://www.instagram.com/kokoa.lat/", icon: <Instagram className="h-5 w-5" /> },
     { href: "https://www.youtube.com/@kokoa-lat", icon: <Youtube className="h-5 w-5" /> },
     { href: "https://www.linkedin.com/company/kokoa-lat/", icon: <Linkedin className="h-5 w-5" /> },
   ];
