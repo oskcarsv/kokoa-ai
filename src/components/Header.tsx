@@ -26,10 +26,10 @@ const Header = () => {
           <Link to="/" className="flex items-center space-x-2">
             <img 
               src="/img/blue-without-a.png"
-              alt="Kokoa Logo" 
+              alt="Kokoa.lat Logo" 
               className="h-9 w-auto"
             />
-            <span className="text-2xl font-bold text-gray-900">Kokoa</span>
+            <span className="text-2xl font-bold text-gray-900">Kokoa.lat</span>
           </Link>
 
           {/* Desktop Navigation */}

@@ -37,10 +37,10 @@ const Footer = () => {
             <Link to="/" className="flex items-center space-x-3 mb-5">
               <img
                 src="/img/blue-without-a.png"
-                alt="Kokoa Logo"
+                alt="Kokoa.lat Logo"
                 className="h-10 w-auto"
               />
-              <span className="text-3xl font-bold text-gray-900">Kokoa</span>
+              <span className="text-3xl font-bold text-gray-900">Kokoa.lat</span>
             </Link>
             <p className="text-gray-600 max-w-sm">
               La comunidad que está construyendo el futuro desde Latinoamérica
@@ -108,7 +108,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-200/80 mt-12 pt-8 text-center text-base text-gray-500">
           <p>
-            © {new Date().getFullYear()} Kokoa | AI & Innovation Studio LATAM.
+            © {new Date().getFullYear()} Kokoa.lat
             Todos los derechos reservados.
           </p>
           <p className="mt-2 text-sm text-gray-400">Hecho con ♥️ desde Guatemala</p>

@@ -4,10 +4,10 @@ import { HelpCircle } from "lucide-react";
 
 const faqs = [
   {
-    question: "¿Qué es Kokoa y cómo funciona?",
+    question: "¿Qué es Kokoa.lat y cómo funciona?",
     answer: (
       <>
-        <strong>Kokoa</strong> es una <strong>comunidad gratuita</strong> de makers, emprendedores y creativos latinoamericanos.<br />
+        <strong>Kokoa.lat</strong> es una <strong>comunidad gratuita</strong> de makers, emprendedores y creativos latinoamericanos.<br />
         <ul className="list-disc pl-5 mt-2">
           <li>No es un curso tradicional.</li>
           <li>Aprendes haciendo proyectos reales, compartiendo y colaborando.</li>

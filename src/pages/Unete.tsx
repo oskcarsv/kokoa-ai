@@ -37,7 +37,7 @@ const Unete = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
         >
-          Únete a Kokoa
+          Únete a Kokoa.lat
         </motion.h1>
         {/* Texto animado */}
         <motion.p

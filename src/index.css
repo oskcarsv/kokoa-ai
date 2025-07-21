@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Kokoa Design System - Clean & Modern AI Studio */
+/* Kokoa.lat Design System - Clean & Modern AI Studio */
 
 @layer base {
   :root {
@@ -16,18 +16,18 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 9%;
 
-    /* Kokoa Primary - Orange vibrante */
+    /* Kokoa.lat Primary - Orange vibrante */
     --primary: 14 79% 46%;                  /* #d94814 - Orange vibrante */
     --primary-foreground: 0 0% 100%;       /* White text on orange */
 
-    /* Kokoa Secondary - Subtle grays */
+    /* Kokoa.lat Secondary - Subtle grays */
     --secondary: 0 0% 96%;                  /* #f5f5f5 - Light gray */
     --secondary-foreground: 0 0% 9%;
 
     --muted: 0 0% 96%;                      /* #f5f5f5 */
     --muted-foreground: 0 0% 45%;          /* #737373 */
 
-    /* Kokoa Accent - Red energético */
+    /* Kokoa.lat Accent - Red energético */
     --accent: 0 100% 60%;                   /* #ff3333 - Red energético */
     --accent-foreground: 0 0% 100%;
 
@@ -62,7 +62,7 @@
   }
 
   .dark {
-    /* Dark mode manteniendo la identidad Kokoa */
+    /* Dark mode manteniendo la identidad Kokoa.lat */
     --background: 0 0% 8%;                  /* Negro profundo */
     --foreground: 36 100% 94%;              /* Crema cálido */
 
@@ -152,7 +152,7 @@
   }
 }
 
-/* Kokoa Custom Utilities */
+/* Kokoa.lat Custom Utilities */
 @layer utilities {
   .animate-fade-in-up {
     @apply animate-in slide-in-from-bottom-8 duration-700;

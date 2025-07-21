@@ -22,7 +22,7 @@ const ContactSection = () => {
     
     toast({
       title: "¡Mensaje enviado!",
-      description: "Nos pondremos en contacto contigo pronto. ¡Gracias por tu interés en Kokoa!",
+      description: "Nos pondremos en contacto contigo pronto. ¡Gracias por tu interés en Kokoa.lat!",
     });
 
     // Reset form after 3 seconds
@@ -147,7 +147,7 @@ const ContactSection = () => {
                   <Textarea
                     id="message"
                     required
-                    placeholder="Cuéntanos sobre tu idea, proyecto, o cómo quieres formar parte de Kokoa..."
+                    placeholder="Cuéntanos sobre tu idea, proyecto, o cómo quieres formar parte de Kokoa.lat..."
                     className="w-full min-h-[100px]"
                   />
                 </div>

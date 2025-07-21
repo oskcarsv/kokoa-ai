@@ -25,7 +25,7 @@ const NotFound = () => {
           animate={{ scale: 1, rotate: 0 }}
           transition={{ type: "spring", stiffness: 180, damping: 12, delay: 0.2 }}
         >
-          <img src="/img/blue-a.png" alt="Kokoa Logo" className="h-20 w-20 mx-auto mb-6 drop-shadow-lg" />
+          <img src="/img/blue-a.png" alt="Kokoa.lat Logo" className="h-20 w-20 mx-auto mb-6 drop-shadow-lg" />
         </motion.div>
         <motion.h1
           className="text-5xl font-extrabold text-kokoa-blue mb-4"
