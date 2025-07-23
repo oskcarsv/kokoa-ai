@@ -2,8 +2,11 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Video } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Meetings = () => {
+  const { t } = useLanguage();
+  
   return (
     <div className="bg-white min-h-screen flex flex-col">
       <Header />
@@ -31,7 +34,7 @@ const Meetings = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
           >
-            Próximamente
+            {t('meetings.title')}
           </motion.h1>
           {/* Texto animado */}
           <motion.p
@@ -40,8 +43,8 @@ const Meetings = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.7, ease: "easeOut" }}
           >
-            Pronto encontrarás aquí las grabaciones de los talleres de la comunidad.<br />
-            ¡Mantente atento a nuestras redes sociales para no perderte ninguna actualización!
+            {t('meetings.subtitle')}<br />
+            {t('meetings.description')}
           </motion.p>
           {/* Botón animado */}
           <motion.a
@@ -54,7 +57,7 @@ const Meetings = () => {
             transition={{ duration: 0.6, delay: 1.1, ease: "easeOut" }}
             whileHover={{ scale: 1.05 }}
           >
-            Únete a la comunidad
+            {t('meetings.button')}
           </motion.a>
         </section>
       </main>

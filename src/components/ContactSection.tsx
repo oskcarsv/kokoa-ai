@@ -4,11 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
+  const { t } = useLanguage();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,8 +23,8 @@ const ContactSection = () => {
     setIsSubmitted(true);
     
     toast({
-      title: "¡Mensaje enviado!",
-      description: "Nos pondremos en contacto contigo pronto. ¡Gracias por tu interés en Kokoa.lat!",
+      title: t('contact.form.success.title'),
+      description: t('contact.form.success.description'),
     });
 
     // Reset form after 3 seconds
@@ -37,12 +39,12 @@ const ContactSection = () => {
           <div className="inline-flex items-center gap-3 mb-6">
             <MessageCircle className="h-6 w-6 text-primary" />
             <h2 className="text-headline text-foreground">
-              Conecta con Nosotros
+              {t('contact.title')}
             </h2>
           </div>
           
           <p className="text-subhead text-muted-foreground">
-            ¿Tienes una idea ambiciosa? ¿Quieres colaborar? Estamos aquí para ayudarte a construir el futuro.
+            {t('contact.subtitle')}
           </p>
         </div>
 
@@ -51,14 +53,14 @@ const ContactSection = () => {
           <div className="card-clean">
             <h3 className="text-xl font-semibold mb-6 flex items-center gap-3">
               <Mail className="h-5 w-5 text-primary" />
-              Hablemos
+              {t('contact.talk.title')}
             </h3>
             
             <div className="space-y-6">
               <div>
-                <h4 className="font-medium mb-2">🚀 ¿Listo para unirte?</h4>
+                <h4 className="font-medium mb-2">{t('contact.ready.title')}</h4>
                 <p className="text-muted-foreground text-sm mb-3">
-                  La forma más rápida de formar parte de nuestra comunidad:
+                  {t('contact.ready.subtitle')}
                 </p>
                 <a 
                   href="https://chat.whatsapp.com/JqT60S7eCMwLHtLG5ZHHzr" 
@@ -66,21 +68,21 @@ const ContactSection = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary/80 transition-colors text-sm"
                 >
-                  💬 Únete al WhatsApp
+                  {t('contact.whatsapp')}
                 </a>
               </div>
 
               <div>
-                <h4 className="font-medium mb-2">📅 Próximo Workshop</h4>
+                <h4 className="font-medium mb-2">{t('contact.workshop.title')}</h4>
                 <p className="text-muted-foreground text-sm">
-                  Cada jueves a las 6:00 PM (hora Guatemala)
+                  {t('contact.workshop.time')}
                 </p>
               </div>
 
               <div>
-                <h4 className="font-medium mb-2">🌎 Desde toda LATAM</h4>
+                <h4 className="font-medium mb-2">{t('contact.latam.title')}</h4>
                 <p className="text-muted-foreground text-sm">
-                  makers conectando desde México hasta Argentina
+                  {t('contact.latam.description')}
                 </p>
               </div>
             </div>
@@ -88,14 +90,14 @@ const ContactSection = () => {
 
           {/* Contact Form */}
           <div className="card-clean">
-            <h3 className="text-xl font-semibold mb-6">Envíanos un mensaje</h3>
+            <h3 className="text-xl font-semibold mb-6">{t('contact.form.title')}</h3>
             
             {isSubmitted ? (
               <div className="text-center py-8">
                 <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-4" />
-                <h4 className="text-lg font-semibold text-green-600 mb-2">¡Mensaje enviado!</h4>
+                <h4 className="text-lg font-semibold text-green-600 mb-2">{t('contact.form.success.title')}</h4>
                 <p className="text-muted-foreground text-sm">
-                  Gracias por contactarnos. Te responderemos pronto.
+                  {t('contact.form.success.description')}
                 </p>
               </div>
             ) : (
@@ -103,25 +105,25 @@ const ContactSection = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
-                      Nombre *
+                      {t('contact.form.name')}
                     </label>
                     <Input
                       id="name"
                       type="text"
                       required
-                      placeholder="Tu nombre"
+                      placeholder={t('contact.form.name.placeholder')}
                       className="w-full"
                     />
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium mb-2">
-                      Email *
+                      {t('contact.form.email')}
                     </label>
                     <Input
                       id="email"
                       type="email"
                       required
-                      placeholder="tu@email.com"
+                      placeholder={t('contact.form.email.placeholder')}
                       className="w-full"
                     />
                   </div>
@@ -129,25 +131,25 @@ const ContactSection = () => {
 
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                    Asunto *
+                    {t('contact.form.subject')}
                   </label>
                   <Input
                     id="subject"
                     type="text"
                     required
-                    placeholder="¿En qué podemos ayudarte?"
+                    placeholder={t('contact.form.subject.placeholder')}
                     className="w-full"
                   />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium mb-2">
-                    Mensaje *
+                    {t('contact.form.message')}
                   </label>
                   <Textarea
                     id="message"
                     required
-                    placeholder="Cuéntanos sobre tu idea, proyecto, o cómo quieres formar parte de Kokoa.lat..."
+                    placeholder={t('contact.form.message.placeholder')}
                     className="w-full min-h-[100px]"
                   />
                 </div>
@@ -160,12 +162,12 @@ const ContactSection = () => {
                   {isSubmitting ? (
                     <>
                       <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                      Enviando...
+                      {t('contact.form.sending')}
                     </>
                   ) : (
                     <>
                       <Send className="h-4 w-4 mr-2" />
-                      Enviar Mensaje
+                      {t('contact.form.send')}
                     </>
                   )}
                 </Button>

@@ -2,20 +2,17 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, X, Instagram, Youtube, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import LanguageSelector from "./LanguageSelector";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   const navLinks = [
-    { to: "/", label: "Inicio" },
-    { to: "/meetings", label: "Meetings" },
-    { to: "/unete", label: "Únete" },
-  ];
-
-  const socialLinks = [
-    { href: "https://www.instagram.com/kokoa.lat/", icon: <Instagram className="h-5 w-5" /> },
-    { href: "https://www.youtube.com/@kokoa-lat", icon: <Youtube className="h-5 w-5" /> },
-    { href: "https://www.linkedin.com/company/kokoa-lat/", icon: <Linkedin className="h-5 w-5" /> },
+    { to: "/", label: t('nav.home') },
+    { to: "/meetings", label: t('nav.meetings') },
+    { to: "/unete", label: t('nav.join') },
   ];
 
   return (
@@ -47,12 +44,13 @@ const Header = () => {
                 </NavLink>
               ))}
             </div>
-            {/* Íconos sociales eliminados */}
             <Button asChild className="bg-kokoa-orange text-white font-semibold shadow-md hover:bg-kokoa-orange/90 transform hover:scale-105 transition-transform duration-300 rounded-full px-6 py-2">
               <a href="https://chat.whatsapp.com/JqT60S7eCMwLHtLG5ZHHzr" target="_blank" rel="noopener noreferrer">
-                Únete
+                WhatsApp
               </a>
             </Button>
+            {/* Selector de idioma */}
+            <LanguageSelector />
           </nav>
 
           {/* Mobile menu button */}
@@ -66,33 +64,36 @@ const Header = () => {
             </Button>
           </div>
         </div>
-      </div>
 
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200">
-          <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.to}
-                to={link.to}
-                className={({ isActive }) =>
-                  `text-base font-medium text-center ${isActive ? 'text-kokoa-blue' : 'text-gray-700 hover:text-kokoa-blue'}`
-                }
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.label}
-              </NavLink>
-            ))}
-            {/* Íconos sociales eliminados en mobile */}
-            <Button asChild className="bg-kokoa-orange text-white hover:bg-kokoa-orange/90 w-full">
-              <a href="https://chat.whatsapp.com/JqT60S7eCMwLHtLG5ZHHzr" target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)}>
-                Únete a la Comunidad
-              </a>
-            </Button>
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-white border-t border-gray-200">
+            <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+              {navLinks.map((link) => (
+                <NavLink
+                  key={link.to}
+                  to={link.to}
+                  className={({ isActive }) =>
+                    `text-base font-medium text-center ${isActive ? 'text-kokoa-blue' : 'text-gray-700 hover:text-kokoa-blue'}`
+                  }
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.label}
+                </NavLink>
+              ))}
+              <Button asChild className="bg-kokoa-orange text-white hover:bg-kokoa-orange/90 w-full">
+                <a href="https://chat.whatsapp.com/JqT60S7eCMwLHtLG5ZHHzr" target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)}>
+                  WhatsApp
+                </a>
+              </Button>
+              {/* Selector de idioma en móvil */}
+              <div className="flex justify-center">
+                <LanguageSelector />
+              </div>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </header>
   );
 };

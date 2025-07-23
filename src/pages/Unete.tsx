@@ -2,23 +2,26 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Instagram, Youtube, Linkedin, Users, BookOpen, Star } from "lucide-react";
 import { motion } from "framer-motion";
-
-const beneficios = [
-  {
-    icon: <BookOpen className="h-6 w-6 text-kokoa-blue" />, 
-    texto: "Aprende sobre inteligencia artificial y tecnología de vanguardia."
-  },
-  {
-    icon: <Users className="h-6 w-6 text-kokoa-blue" />, 
-    texto: "Conecta y haz networking con otros makers y creativos de LATAM."
-  },
-  {
-    icon: <Star className="h-6 w-6 text-kokoa-blue" />, 
-    texto: "Accede a recursos exclusivos, talleres y oportunidades únicas."
-  }
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Unete = () => {
+  const { t } = useLanguage();
+  
+  const beneficios = [
+    {
+      icon: <BookOpen className="h-6 w-6 text-kokoa-blue" />, 
+      texto: t('unete.benefit1')
+    },
+    {
+      icon: <Users className="h-6 w-6 text-kokoa-blue" />, 
+      texto: t('unete.benefit2')
+    },
+    {
+      icon: <Star className="h-6 w-6 text-kokoa-blue" />, 
+      texto: t('unete.benefit3')
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <Header />
@@ -37,7 +40,7 @@ const Unete = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
         >
-          Únete a Kokoa.lat
+          {t('unete.title')}
         </motion.h1>
         {/* Texto animado */}
         <motion.p
@@ -46,8 +49,8 @@ const Unete = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
         >
-          Forma parte de la comunidad que está construyendo el futuro de LATAM con inteligencia artificial.<br />
-          Únete a nuestro grupo de WhatsApp y síguenos en redes sociales para no perderte nada.
+          {t('unete.subtitle')}<br />
+          {t('unete.description')}
         </motion.p>
         {/* Beneficios animados */}
         <motion.ul
@@ -88,7 +91,7 @@ const Unete = () => {
           transition={{ duration: 0.6, delay: 1.1, ease: "easeOut" }}
           whileHover={{ scale: 1.05 }}
         >
-          Únete al grupo de WhatsApp
+          {t('unete.button')}
         </motion.a>
         {/* Redes sociales animadas */}
         <motion.div

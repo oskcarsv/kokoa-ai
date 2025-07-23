@@ -1,12 +1,15 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { Instagram, Youtube, Linkedin } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
+  
   const siteLinks = [
-    { to: "/", label: "Inicio" },
-    { to: "/meetings", label: "Meetings" },
-    { to: "/unete", label: "Únete" },
+    { to: "/", label: t('nav.home') },
+    { to: "/meetings", label: t('nav.meetings') },
+    { to: "/unete", label: t('nav.join') },
   ];
 
   const socialLinks = [
@@ -43,7 +46,7 @@ const Footer = () => {
               <span className="text-3xl font-bold text-gray-900">Kokoa.lat</span>
             </Link>
             <p className="text-gray-600 max-w-sm">
-              La comunidad que está construyendo el futuro desde Latinoamérica
+              {t('footer.description')}
             </p>
             <div className="mt-6 flex justify-center lg:justify-start space-x-5">
               {socialLinks.map((link) => (
@@ -66,12 +69,12 @@ const Footer = () => {
           {/* Column 2: Site Links */}
           <div className="lg:col-span-2 text-center lg:text-left">
             <h3 className="text-lg font-semibold text-gray-900 mb-5">
-              Navegación
+              {t('footer.navigation')}
             </h3>
             <ul className="space-y-3">
               {siteLinks.map((link) => (
                 <li key={link.to}>
-                  {link.label === "Inicio" ? (
+                  {link.label === t('nav.home') ? (
                     <Link
                       to={link.to}
                       className="text-gray-600 hover:text-kokoa-blue transition-colors duration-300"
@@ -95,7 +98,7 @@ const Footer = () => {
           {/* Column 3: Contact */}
           <div className="lg:col-span-4 text-center lg:text-left">
             <h3 className="text-lg font-semibold text-gray-900 mb-5">
-              Contacto
+              {t('footer.contact')}
             </h3>
             <a
               href="mailto:info@kokoa.lat"
@@ -108,10 +111,9 @@ const Footer = () => {
 
         <div className="border-t border-gray-200/80 mt-12 pt-8 text-center text-base text-gray-500">
           <p>
-            © {new Date().getFullYear()} Kokoa.lat
-            Todos los derechos reservados.
+            {t('footer.copyright')}
           </p>
-          <p className="mt-2 text-sm text-gray-400">Hecho con ♥️ desde Guatemala</p>
+          <p className="mt-2 text-sm text-gray-400">{t('footer.made')}</p>
         </div>
       </div>
     </footer>

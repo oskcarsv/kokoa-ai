@@ -1,76 +1,76 @@
 import { motion } from "framer-motion";
 import { CalendarClock } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // Función para calcular horarios basados en la hora de Guatemala (6:00 PM)
 const getWorkshopTimes = () => {
   // Hora de referencia: 6:00 PM en Guatemala
-  const baseTime = "6:00 PM";
-
+  const baseTime = '6:00 PM';
+  
   // Diferencias horarias conocidas (en horas) desde Guatemala
   const timeZones = [
-    { name: "Guatemala", offset: 0 },
-    { name: "México", offset: 0 },
-    { name: "Colombia", offset: 1 },
-    { name: "Chile", offset: 2 },
-    { name: "Argentina", offset: 3 },
+    { name: "Guatemala & México", flag: "\u{1F1EC}\u{1F1F9} \u{1F1F2}\u{1F1FD}", offset: 0 },
+    { name: "Colombia", flag: "\u{1F1E8}\u{1F1F4}", offset: 1 },
+    { name: "Chile", flag: "\u{1F1E8}\u{1F1F1}", offset: 2 },
+    { name: "Argentina", flag: "\u{1F1E6}\u{1F1F7}", offset: 3 },
   ];
 
-  return timeZones.map(({ name, offset }) => {
+  return timeZones.map(({ name, flag, offset }) => {
     if (offset === 0) {
-      return { name, time: baseTime };
+      return { name, flag, time: baseTime };
     }
-
+    
     // Calcular hora local
-    let [time, period] = baseTime.split(" ");
-    let [hours, minutes] = time.split(":").map(Number);
+    let [time, period] = baseTime.split(' ');
+    let [hours, minutes] = time.split(':').map(Number);
     let newHours = hours + offset;
-
+    
     if (newHours > 12) {
       newHours -= 12;
-      period = period === "PM" ? "AM" : "PM";
+      period = period === 'PM' ? 'AM' : 'PM';
     }
-
-    return {
-      name,
-      time: `${newHours}:${minutes.toString().padStart(2, "0")} ${period}`,
+    
+    return { 
+      name, 
+      flag,
+      time: `${newHours}:${minutes.toString().padStart(2, '0')} ${period}` 
     };
   });
 };
 
 const WorkshopsSection = () => {
+  const { t } = useLanguage();
   const countryTimes = getWorkshopTimes();
 
   return (
     <section className="bg-kokoa-blue text-white py-20">
       <div className="container mx-auto px-4">
-        <motion.div
+        <motion.div 
           className="text-center max-w-3xl mx-auto mb-12"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <motion.div
+          <motion.div 
             className="inline-block mb-4 text-white"
             animate={{ rotate: [0, 10, -10, 10, -10, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 3 }}
           >
             <CalendarClock className="h-16 w-16" />
           </motion.div>
-          <h2 className="text-4xl font-bold mb-4">Workshops Semanales</h2>
+          <h2 className="text-4xl font-bold mb-4">{t('workshops.title')}</h2>
           <p className="text-lg leading-relaxed mb-4 opacity-90">
-            Nos reunimos virtualmente cada jueves para aprender, construir y
-            conectar desde toda Latinoamérica.
+            {t('workshops.subtitle')}
           </p>
           <p className="text-base opacity-80">
-            Consulta los horarios y accede a los próximos workshops en el
-            calendario.
+            {t('workshops.description')}
           </p>
         </motion.div>
 
         <div className="flex flex-col lg:flex-row gap-8 items-stretch max-w-5xl mx-auto">
           {/* Horarios verticales */}
-          <motion.div
+          <motion.div 
             className="flex-1 flex flex-col justify-center gap-4"
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -83,18 +83,17 @@ const WorkshopsSection = () => {
                 className="bg-white/10 border border-white/20 rounded-lg p-6 text-center shadow hover:shadow-lg transition-all duration-300"
                 whileHover={{ scale: 1.05, y: -5 }}
               >
-                <p className="font-bold text-lg text-white mb-1">
-                  {country.name}
-                </p>
-                <p className="text-white font-semibold text-xl">
-                  {country.time}
-                </p>
+                <div className="flex items-center justify-center gap-3 mb-2">
+                  <span className="text-2xl">{country.flag}</span>
+                  <p className="font-bold text-lg text-white">{country.name}</p>
+                </div>
+                <p className="text-white font-semibold text-xl">{country.time}</p>
               </motion.div>
             ))}
           </motion.div>
 
           {/* Frame de Luma */}
-          <motion.div
+          <motion.div 
             className="flex-1 flex items-center justify-center"
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -103,7 +102,7 @@ const WorkshopsSection = () => {
           >
             <div className="w-full bg-white rounded-xl shadow-2xl overflow-hidden max-w-xl">
               <iframe
-                src="https://lu.ma/embed/calendar/cal-qFP1xRyYpq6y7Pu/events"
+                src="https://lu.ma/embed/calendar/cal-qFP1xRyYpq6y7Pu/events?lt=light"
                 width="100%"
                 height="600"
                 frameBorder="0"

@@ -1,51 +1,54 @@
 import { motion } from 'framer-motion';
 import { BrainCircuit, Zap, Rocket, Box } from 'lucide-react';
-
-const pillars = [
-  {
-    icon: <BrainCircuit className="h-12 w-12 text-white" />,
-    title: "Creatividad",
-    description: "Desbloqueamos tu potencial sin límites técnicos",
-  },
-  {
-    icon: <Zap className="h-12 w-12 text-white" />,
-    title: "Innovación",
-    description: "Creamos soluciones que no existían",
-  },
-  {
-    icon: <Rocket className="h-12 w-12 text-white" />,
-    title: "Impacto",
-    description: "Lo que construimos transforma el mundo",
-  },
-  {
-    icon: <Box className="h-12 w-12 text-white" />,
-    title: "Think Outside the Box",
-    description: "Pensamos, creamos y resolvemos diferente",
-  },
-];
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.2,
-      duration: 0.6,
-      ease: "easeOut"
-    },
-  }),
-};
-
-const iconHover = {
-  hover: {
-    scale: 1.1,
-    rotate: 5,
-    transition: { duration: 0.3 }
-  }
-};
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const PillarsSection = () => {
+  const { t } = useLanguage();
+  
+  const pillars = [
+    {
+      icon: <BrainCircuit className="h-12 w-12 text-white" />,
+      title: t('pillars.creativity.title'),
+      description: t('pillars.creativity.description'),
+    },
+    {
+      icon: <Zap className="h-12 w-12 text-white" />,
+      title: t('pillars.innovation.title'),
+      description: t('pillars.innovation.description'),
+    },
+    {
+      icon: <Rocket className="h-12 w-12 text-white" />,
+      title: t('pillars.impact.title'),
+      description: t('pillars.impact.description'),
+    },
+    {
+      icon: <Box className="h-12 w-12 text-white" />,
+      title: t('pillars.think.title'),
+      description: t('pillars.think.description'),
+    },
+  ];
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.2,
+        duration: 0.6,
+        ease: "easeOut" as const
+      },
+    }),
+  };
+
+  const iconHover = {
+    hover: {
+      scale: 1.1,
+      rotate: 5,
+      transition: { duration: 0.3 }
+    }
+  };
+
   return (
     <section className="bg-kokoa-blue text-white py-24 sm:py-32">
       <div className="container mx-auto px-4">
@@ -56,8 +59,8 @@ const PillarsSection = () => {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight">Pilares de la Comunidad</h2>
-          <p className="text-lg sm:text-xl mt-4 opacity-90 max-w-2xl mx-auto">Nuestros principios fundamentales que guían cada proyecto e idea.</p>
+          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight">{t('pillars.title')}</h2>
+          <p className="text-lg sm:text-xl mt-4 opacity-90 max-w-2xl mx-auto">{t('pillars.subtitle')}</p>
         </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {pillars.map((pillar, i) => (
